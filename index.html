@@ -53,7 +53,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-9.029530717729598,-91.4172314277848],[12.374257444272379,-58.71773262048461]]);
+        }).fitBounds([[-7.84189758913516,-90.30877384109667],[13.561890572866817,-57.60927503379648]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -73,19 +73,19 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_ESRIGraylight_0');
-        map.getPane('pane_ESRIGraylight_0').style.zIndex = 400;
-        var layer_ESRIGraylight_0 = L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-            pane: 'pane_ESRIGraylight_0',
+        map.createPane('pane_GoogleHybrid_0');
+        map.getPane('pane_GoogleHybrid_0').style.zIndex = 400;
+        var layer_GoogleHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleHybrid_0',
             opacity: 1.0,
-            attribution: '',
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
             maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        layer_ESRIGraylight_0;
-        map.addLayer(layer_ESRIGraylight_0);
+        layer_GoogleHybrid_0;
+        map.addLayer(layer_GoogleHybrid_0);
         function pop_ne_10m_airports_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -130,7 +130,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(69,69,69,1.0)',
+                fillColor: 'rgba(227,26,28,1.0)',
                 interactive: true,
             }
                     break;
@@ -146,7 +146,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,0,0,1.0)',
+                fillColor: 'rgba(227,26,28,1.0)',
                 interactive: true,
             }
                     break;
@@ -162,7 +162,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,0,0,1.0)',
+                fillColor: 'rgba(227,26,28,1.0)',
                 interactive: true,
             }
                     break;
@@ -199,7 +199,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'ne_10m_airports<br /><table><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_MajorAeropuerto0.png" /></td><td>Major Aeropuerto</td></tr><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_MidAeropuerto1.png" /></td><td>Mid Aeropuerto</td></tr><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_SmallAeropuerto2.png" /></td><td>Small Aeropuerto</td></tr></table>': layer_ne_10m_airports_1,"ESRI Gray (light)": layer_ESRIGraylight_0,}).addTo(map);
+        L.control.layers(baseMaps,{'ne_10m_airports<br /><table><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_MajorAeropuerto0.png" /></td><td>Major Aeropuerto</td></tr><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_MidAeropuerto1.png" /></td><td>Mid Aeropuerto</td></tr><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_SmallAeropuerto2.png" /></td><td>Small Aeropuerto</td></tr></table>': layer_ne_10m_airports_1,"Google Hybrid": layer_GoogleHybrid_0,}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_ne_10m_airports_1,
